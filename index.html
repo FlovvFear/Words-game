@@ -5,40 +5,6 @@
         <title>Игра в слова</title>
     </head>
     <body>
-        <script>
-            let words = [
-                "интересный",
-                "умный",
-                "арка",
-                "оборот",
-                "ключ"
-            ];
-            let word = words[Math.floor(Math.random() * words.length)];
-
-            let answerArray = [];
-            for (let i =0; i < words.length; i++) {
-                answerArray[i] = "_";
-            }
-            let remainingLetters = word.length;
-
-            while (remainingLetters > 0) {
-                alert(answerArray.join(" "));
-                let guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры");
-                if (guess === null) {
-                    break
-                } else if (guess.length !== 1) {
-                    alert('Пожалуйста введите одну букву');
-                } else {
-                    for (let i = 0; i < word.length; i++) {
-                        if(guess === word[i]) {
-                            answerArray[i] = guess;
-                            remainingLetters--;
-                        }
-                    }
-                }
-            }
-            alert("Поздравляем, было загаданно слово: " +  word);
-
-        </script>
+        <script src="./script.js"></script>
     </body>
 </html>
