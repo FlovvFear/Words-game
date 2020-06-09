@@ -1,16 +1,16 @@
 let words = [
-    // "интересный",
-    // "умный",
-    "арка"
-    // "оборот",
-    // "ключ"
+    "интересный",
+    "умный",
+    "арка",
+    "оборот",
+    "ключ"
 ];
+console.log('Массив "Слова": ', words);
 let word = words[Math.floor(Math.random() * words.length)];
 console.log('1:', word.length);
 
 let answerArray = [];
-for (let i = 0; i < words.length; i++) {
-    console.log(i, ':', answerArray[i]);
+for (let i = 0; i < word.length; i++) {
     answerArray[i] = " _ ";
 }
 console.log('2:', answerArray);
@@ -19,7 +19,7 @@ let leave;
 
 while (remainingLetters > 0) {
     alert(answerArray.join(" "));
-    let guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры");
+    let guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры").replace(/[a-z]/gi,'');
     if (guess === null) {
         leave = true;
         break
