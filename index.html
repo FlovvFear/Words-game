@@ -3,8 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>Игра в слова</title>
+        <link rel="stylesheet" type="text/css" href="style.css" >
     </head>
     <body>
-        <script src="./script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <div class="game-block">
+            <h3 class="game-block__title">Добро пожаловать в "Угадай слово"</h3>
+            <span class="game-block__question"> Введите одну русскую букву</span>
+            <input class="game-block__input" type="text">
+            <span class="game-block__result"></span>
+            <script src="./script.js"></script>
+        </div>
     </body>
 </html>

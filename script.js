@@ -1,3 +1,9 @@
+function log (mes) {
+    console.log(mes);
+}
+let answer = $(".game-block__result");
+console.log(answer);
+
 let words = [
     "интересный",
     "умный",
@@ -13,32 +19,44 @@ let answerArray = [];
 for (let i = 0; i < word.length; i++) {
     answerArray[i] = " _ ";
 }
-console.log('2:', answerArray);
-let remainingLetters = word.length;
-let leave;
 
-while (remainingLetters > 0) {
-    alert(answerArray.join(" "));
-    let guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры").replace(/[a-z]/gi,'');
-    if (guess === null) {
-        leave = true;
-        break
-    } else if (guess.length !== 1) {
-        alert('Пожалуйста введите одну букву');
-    } else {
-        for (let i = 0; i < word.length; i++) {
-            if(guess.toLowerCase() === word[i] && guess.toLowerCase() !== answerArray[i]) {
-                answerArray[i] = guess.toLowerCase();
-                remainingLetters--;
-            }
-        }
-    }
-}
-if (leave && (remainingLetters < word.length)) {
-    alert("Вы почти справились, вот загаданное слово: " + word);
-} else if (leave) {
-    alert("Обязательно возвращайтесь");
-} else {
-    alert("Поздравляем, было загаданно слово: " +  word);
-}
+answer.text(answerArray.join(" "));
+let remainingLetters = word.length;
+// let leave;
+
+$("input").on('keyup', function() {
+    let value = $(this).val();
+    $(this).val(value.replace(/[a-z\d`~{}//]/gi,''));
+  });
+
+// Как записать введенное значение из инпута в переменную?
+
+
+
+
+
+// while (remainingLetters > 0) {
+//     if (guess === null) {
+//         leave = true;
+//         break
+//     } else if (guess.length !== 1) {
+//         alert('Пожалуйста введите одну букву');
+//     } else {
+//         for (let i = 0; i < word.length; i++) {
+//             if(guess.toLowerCase() === word[i] && guess.toLowerCase() !== answerArray[i]) {
+//                 answerArray[i] = guess.toLowerCase();
+//                 remainingLetters--;
+//             }
+//         }
+//     }
+// }
+
+
+// if (leave && (remainingLetters < word.length)) {
+//     alert("Вы почти справились, вот загаданное слово: " + word);
+// } else if (leave) {
+//     alert("Обязательно возвращайтесь");
+// } else {
+//     alert("Поздравляем, было загаданно слово: " +  word);
+// }
 
