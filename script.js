@@ -1,35 +1,67 @@
 function log (mes) {
     console.log(mes);
 }
-let answer = $(".game-block__result");
-console.log(answer);
-
-let words = [
+let answer = $(".game-block__result"),
+    btn = $(".game-block__btn"),
+    input = $(".game-block__input"),
+    remaining = $(".game-block__remaining"),
+    words = [
     "интересный",
     "умный",
     "арка",
     "оборот",
-    "ключ"
-];
-console.log('Массив "Слова": ', words);
-let word = words[Math.floor(Math.random() * words.length)];
-console.log('1:', word.length);
+    "ключ"],
+    word = words[Math.floor(Math.random() * words.length)],
+    remainingLetters = word.length,
+    answerArray = [];
+    log(word);
 
-let answerArray = [];
 for (let i = 0; i < word.length; i++) {
     answerArray[i] = " _ ";
 }
+// Можно ли определить массив циклом при его объявлении?
 
 answer.text(answerArray.join(" "));
-let remainingLetters = word.length;
-// let leave;
+remaining.text("осталось " + remainingLetters);
 
-$("input").on('keyup', function() {
+input.on('keyup', function() {
     let value = $(this).val();
     $(this).val(value.replace(/[a-z\d`~{}//]/gi,''));
+    let guess = input.val();
+    input.val("");
+    for (let i = 0; i < word.length; i++) {
+        if(guess.toLowerCase() === word[i] && guess.toLowerCase() !== answerArray[i]) {
+            answerArray[i] = guess.toLowerCase();
+            answer.text(answerArray.join(" "));
+            remainingLetters--;
+            if(remainingLetters > 0) {
+                remaining.text("осталось " + remainingLetters);
+            } else {
+                remaining.text("Поздравляем, вы угадали слово")
+            };
+
+        }
+    }
   });
 
-// Как записать введенное значение из инпута в переменную?
+// btn.on('click', function() {
+//     let guess = input.val();
+//     input.val("");
+//     for (let i = 0; i < word.length; i++) {
+//         if(guess.toLowerCase() === word[i] && guess.toLowerCase() !== answerArray[i]) {
+//             answerArray[i] = guess.toLowerCase();
+//             answer.text(answerArray.join(" "));
+//             remainingLetters--;
+//             if(remainingLetters > 0) {
+//                 remaining.text("осталось " + remainingLetters);
+//             } else {
+//                 remaining.text("Поздравляем, вы угадали слово")
+//             };
+
+//         }
+//     }
+// });
+
 
 
 

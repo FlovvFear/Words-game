@@ -10,8 +10,10 @@
         <div class="game-block">
             <h3 class="game-block__title">Добро пожаловать в "Угадай слово"</h3>
             <span class="game-block__question"> Введите одну русскую букву</span>
-            <input class="game-block__input" type="text">
+            <input id="inRes" class="game-block__input" type="text" placeholder="Введите букву" maxlength="1">
+            <input class="game-block__btn" type="button" value="Вперёд!">
             <span class="game-block__result"></span>
+            <span class="game-block__remaining"></span>
             <script src="./script.js"></script>
         </div>
     </body>

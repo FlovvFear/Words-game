@@ -30,4 +30,8 @@
   border: solid 2px purple;
   border-radius: 10px;
 }
+
+.game-block__btn {
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */
