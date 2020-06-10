@@ -2,7 +2,8 @@ function log (mes) {
     console.log(mes);
 }
 let answer = $(".game-block__result"),
-    btn = $(".game-block__btn"),
+    gameBtn = $(".game-block__btn"),
+    welcomeBtn = $(".welcome-block__btn"),
     input = $(".game-block__input"),
     remaining = $(".game-block__remaining"),
     words = [
@@ -42,9 +43,15 @@ input.on('keyup', function() {
 
         }
     }
-  });
+});
 
-// btn.on('click', function() {
+welcomeBtn.on('click', function() {
+    $('.welcome').addClass('hidden');
+    $('.game').removeClass('hidden');
+});
+
+
+// gameBtn.on('click', function() {
 //     let guess = input.val();
 //     input.val("");
 //     for (let i = 0; i < word.length; i++) {
