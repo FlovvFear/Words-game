@@ -3,6 +3,21 @@
   padding: 0;
 }
 
+.btn {
+  padding: 5px;
+  border-color: black;
+  border-radius: 5px;
+  background-color: purple;
+}
+
+.btn:hover {
+  background-color: red;
+}
+
+.hidden {
+  display: none;
+}
+
 .game-block {
   width: 30%;
   margin: auto;
@@ -33,5 +48,28 @@
 
 .game-block__btn {
   display: none;
+}
+
+.welcome-block {
+  width: 30%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px 35px;
+  border: solid 1px black;
+  border-radius: 50px;
+  background-color: #cfcfcf;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.welcome-block * {
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.welcome-block__title {
+  border: double 5px purple;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=style.css.map */
