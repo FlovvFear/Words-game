@@ -2,8 +2,10 @@ function log (mes) {
     console.log(mes);
 }
 let answer = $(".game-block__result"),
-    gameBtn = $(".game-block__btn"),
+    // gameBtn = $(".game-block__btn"),
     welcomeBtn = $(".welcome-block__btn"),
+    congratulationBtn = $(".congratulation-block__btn"),
+    // не получается найти кнопку
     input = $(".game-block__input"),
     remaining = $(".game-block__remaining"),
     words = [
@@ -11,18 +13,42 @@ let answer = $(".game-block__result"),
     "умный",
     "арка",
     "оборот",
-    "ключ"],
+    "ключ"
+    ],
     word = words[Math.floor(Math.random() * words.length)],
     remainingLetters = word.length,
     answerArray = [];
+    log('1# Слово:')
     log(word);
 
-for (let i = 0; i < word.length; i++) {
-    answerArray[i] = " _ ";
-}
-// Можно ли определить массив циклом при его объявлении?
 
-answer.text(answerArray.join(" "));
+// Приветсвенный экран
+
+welcomeBtn.on('click', function() {
+    $('.welcome').addClass('hidden');
+    $('.game').removeClass('hidden');
+});
+
+
+// Экран игры
+
+function newAnswerArray () {
+    for (let i = 0; i < word.length; i++) {
+        answerArray[i] = " _ ";
+        answer.text(answerArray.join(" "));
+    }
+}
+
+// Можно ли определить массив циклом при его объявлении? Пример:
+// let answerArray = [
+//     for (let i = 0; i < word.length; i++) {
+//         answerArray[i] = " _ ";
+//         answer.text(answerArray.join(" "));
+//     }
+// ];
+
+
+newAnswerArray();
 remaining.text("осталось " + remainingLetters);
 
 input.on('keyup', function() {
@@ -38,17 +64,30 @@ input.on('keyup', function() {
             if(remainingLetters > 0) {
                 remaining.text("осталось " + remainingLetters);
             } else {
-                remaining.text("Поздравляем, вы угадали слово")
+                $('.game').addClass('hidden');
+                $('.congratulation').removeClass('hidden');
             };
 
         }
     }
 });
 
-welcomeBtn.on('click', function() {
-    $('.welcome').addClass('hidden');
+// Экран поздравлений
+
+// не работает, так как не получается найти кнопку
+log('2# Кнопка поздравлений:');
+log(congratulationBtn);
+congratulationBtn.on('click', function() {
+    word = words[Math.floor(Math.random() * words.length)];
+    remainingLetters = word.length
+    newAnswerArray();
+    $('.congratulation').addClass('hidden');
     $('.game').removeClass('hidden');
+    log('hi');
 });
+
+
+// Старый код ниже
 
 
 // gameBtn.on('click', function() {
